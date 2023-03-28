@@ -49,7 +49,9 @@ ENABLED_RANGER_SERVICE_FILE=${HOME}/.ranger_docker_services
 
 [ -z "${RANGER_DB_TYPE}" ] && RANGER_DB_TYPE="postgres"
 
-CORE_SERVICES="ranger-base,ranger,ranger-${RANGER_DB_TYPE},ranger-usersync"
+#CORE_SERVICES="ranger-base,ranger,ranger-${RANGER_DB_TYPE},ranger-usersync"
+# Remove ranger-usersync
+CORE_SERVICES="ranger-base,ranger,ranger-${RANGER_DB_TYPE}"
 
 if [ -z "${ENABLED_RANGER_SERVICES}" ]
 then

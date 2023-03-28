@@ -21,8 +21,9 @@ services:
         condition: service_started
       ranger-db:
         condition: service_healthy
-      ranger-solr:
-        condition: service_started
+#      Remove sorl
+#      ranger-solr:
+#        condition: service_started
     environment:
       - RANGER_VERSION
       - RANGER_DB_TYPE
@@ -41,21 +42,22 @@ services:
     ports:
       - "2181:2181"
 
-  ranger-solr:
-    build:
-      context: .
-      dockerfile: Dockerfile.ranger-solr
-    image: ranger-solr
-    container_name: ranger-solr
-    hostname: ranger-solr.example.com
-    networks:
-      - ranger
-    ports:
-      - "8983:8983"
-    command:
-      - solr-precreate
-      - ranger_audits
-      - /opt/solr/server/solr/configsets/ranger_audits/
+#  Remove solr
+#  ranger-solr:
+#    build:
+#      context: .
+#      dockerfile: Dockerfile.ranger-solr
+#    image: ranger-solr
+#    container_name: ranger-solr
+#    hostname: ranger-solr.example.com
+#    networks:
+#      - ranger
+#    ports:
+#      - "8983:8983"
+#    command:
+#      - solr-precreate
+#      - ranger_audits
+#      - /opt/solr/server/solr/configsets/ranger_audits/
 
 networks:
   ranger:
