@@ -55,4 +55,4 @@ FROM ranger_${RANGER_DB_TYPE}
 
 USER ranger
 
-ENTRYPOINT [ "/home/ranger/scripts/ranger.sh" ]
+# ENTRYPOINT [ "/home/ranger/scripts/ranger.sh" ]

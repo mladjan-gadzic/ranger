@@ -6,63 +6,28 @@ services:
       dockerfile: Dockerfile.ranger
       args:
         - RANGER_VERSION=${RANGER_VERSION}
-        - RANGER_DB_TYPE=${RANGER_DB_TYPE}
+        - RANGER_DB_TYPE=postgres
         - RANGER_ADMIN_JAVA_VERSION=${RANGER_ADMIN_JAVA_VERSION}
     image: ranger:latest
+    volumes:
+      - ./krb5.conf:/etc/krb5.conf
+      - /etc/security/keytabs/rangeradmin.keytab:/etc/security/keytabs/rangeradmin.keytab
+      - /etc/security/keytabs/http_keytab.keytab:/etc/security/keytabs/http_keytab.keytab
+      - ./install.properties:/opt/ranger/ranger-3.0.0-SNAPSHOT-admin/install.properties
+      - ./hosts:/etc/hosts
+      - ./resolv.conf:/etc/resolv.conf
     container_name: ranger
     hostname: ranger.example.com
     stdin_open: true
     tty: true
-    networks:
-      - ranger
+    network_mode: host
     ports:
       - "6080:6080"
     depends_on:
-#      ranger-zk:
-#        condition: service_started
       ranger-db:
         condition: service_healthy
-#      ranger-solr:
-#        condition: service_started
     environment:
       - RANGER_VERSION
       - RANGER_DB_TYPE
       - DEBUG_ADMIN=${DEBUG_ADMIN:-false}
-    command:
-      - /home/ranger/scripts/ranger.sh
-
-#  ranger-zk:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.ranger-zk
-#      args:
-#        - ZK_VERSION=${ZK_VERSION}
-#    image: ranger-zk
-#    container_name: ranger-zk
-#    hostname: ranger-zk.example.com
-#    networks:
-#      - ranger
-#    ports:
-#      - "2181:2181"
-
-#  ranger-solr:
-#    build:
-#      context: .
-#      dockerfile: Dockerfile.ranger-solr
-#      args:
-#        - SOLR_VERSION=${SOLR_VERSION}
-#    image: ranger-solr
-#    container_name: ranger-solr
-#    hostname: ranger-solr.example.com
-#    networks:
-#      - ranger
-#    ports:
-#      - "8983:8983"
-#    command:
-#      - solr-precreate
-#      - ranger_audits
-#      - /opt/solr/server/solr/configsets/ranger_audits/
-
-networks:
-  ranger:
-    name: rangernw
+    command: ["/bin/bash", "-c", "while true; do echo 'Container is running...'; done"]

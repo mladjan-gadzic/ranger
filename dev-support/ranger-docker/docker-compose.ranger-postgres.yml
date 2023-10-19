@@ -9,14 +9,16 @@ services:
     image: ranger-postgres
     container_name: ranger-postgres
     hostname: ranger-db.example.com
-    networks:
-      - ranger
+    network_mode: host
+    #networks:
+    # - ranger
+    ports:
+      - "5432:5432"
     healthcheck:
       test: 'su -c "pg_isready -q" postgres'
       interval: 10s
       timeout: 2s
       retries: 30
-
-networks:
-  ranger:
-    name: rangernw
+      #networks:
+      #ranger:
+      #name: rangernw
