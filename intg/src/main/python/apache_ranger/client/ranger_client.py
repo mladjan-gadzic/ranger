@@ -456,6 +456,13 @@ class RangerClientHttp:
 
 
     def call_api(self, api, query_params=None, request_data=None):
+        print("###MLADJAN START - API###")
+        print(api)
+        print("###MLADJAN END - API###")
+
+        print("###MLADJAN START - HEADERS###")
+        print(self.headers)
+        print("###MLADJAN END - HEADERS###")
         ret    = None
         params = { 'headers': { 'Accept': api.consumes, 'Content-type': api.produces } }
 

@@ -19,7 +19,7 @@
 
 if [ "${BRANCH}" == "" ]
 then
-  BRANCH=ranger-2.1
+  BRANCH=ranger-2.4
 fi
 
 if [ "${GIT_URL}" == "" ]
@@ -44,7 +44,7 @@ then
   BUILD_HOST_SRC=true
 fi
 
-export MAVEN_OPTS="-Xms2g -Xmx2g"
+export MAVEN_OPTS="-Xms2g -Xmx8g"
 export M2=/home/ranger/.m2
 
 
