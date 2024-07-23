@@ -104,7 +104,7 @@ public class EmbeddedServer {
 
 	public void start() {
 		SSLContext sslContext = getSSLContext();
-		LOG.info("HMSA v1.2");
+		LOG.info("Ranger HMSA v1.3");
 		if (sslContext != null) {
 			SSLContext.setDefault(sslContext);
 		}

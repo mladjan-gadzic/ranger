@@ -115,7 +115,7 @@ public class UnixAuthenticationService {
 	public void run() {
 		try {
 			LOG.info("Starting User Sync Service!");
-			LOG.info("HMSA v1.2");
+			LOG.info("Ranger HMSA v1.3");
 			startUnixUserGroupSyncProcess();
 			Thread.sleep(5000);
 			if (enableUnixAuth) {
