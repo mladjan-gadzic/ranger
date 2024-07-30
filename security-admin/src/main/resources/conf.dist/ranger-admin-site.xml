@@ -104,7 +104,7 @@
 	</property>
 	<property>
 		<name>ranger.authentication.method</name>
-		<value>NONE</value>
+		<value>UNIX</value>
 		<description></description>
 	</property>
 	<property>
@@ -273,7 +273,7 @@
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.cookie.domain</name>
-		<value></value>
+		<value>localhost</value>
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.cookie.path</name>
@@ -281,27 +281,27 @@
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.principal</name>
-		<value>rangeradmin/_HOST@REALM</value>
+		<value>rangeradmin/local@REALM</value>
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.keytab</name>
-		<value></value>
+		<value>/etc/security/keytabs/rangeradmin.local.keytab</value>
 	</property>
 	<property>
 		<name>ranger.spnego.kerberos.principal</name>
-		<value>HTTP/_HOST@REALM</value>
+		<value>HTTP/local@EXAMPLE.COM</value>
 	</property>
 	<property>
 		<name>ranger.spnego.kerberos.keytab</name>
-		<value></value>
+		<value>/etc/security/keytabs/HTTP.local.keytab</value>
 	</property>	
 	<property>
 		<name>ranger.lookup.kerberos.principal</name>
-		<value>rangerlookup/_HOST@REALM</value>
+		<value>rangerlookup/local@REALM</value>
 	</property>
 	<property>
 		<name>ranger.lookup.kerberos.keytab</name>
-		<value></value>
+		<value>/etc/security/keytabs/rangerlookup.local.keytab</value>
 	</property>
 	<!-- Kerberos Properties ENDs-->
 	<property>
@@ -310,8 +310,23 @@
 	</property>
 	<property>
 		<name>ranger.downloadpolicy.session.log.enabled</name>
-		<value>false</value>
+		<value>true</value>
 	</property>
+
+<!--	Kerberos extra configs-->
+	<property>
+		<name>hadoop.security.authentication</name>
+		<value>kerberos</value>
+	</property>
+	<property>
+		<name>policy.download.auth.users</name>
+		<value>hadoop,hive,spark,trino</value>
+	</property>
+	<property>
+		<name>hadoop.security.auth_to_local</name>
+		<value>DEFAULT</value>
+	</property>
+
 	<!-- Service user for KMS -->
     <property>
     	<name>ranger.kms.service.user.hdfs</name>
