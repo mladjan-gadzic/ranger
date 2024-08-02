@@ -28,6 +28,9 @@ services:
       - RANGER_VERSION
       - RANGER_DB_TYPE
       - DEBUG_ADMIN=${DEBUG_ADMIN:-false}
+    volumes:
+      - ./kerberos-files/krb5.conf:/etc/krb5.conf
+      - ./kerberos-files/keytabs:/etc/security/keytabs
     command:
       - /home/ranger/scripts/ranger.sh
 
