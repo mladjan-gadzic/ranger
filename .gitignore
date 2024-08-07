@@ -17,3 +17,4 @@ winpkg/target
 **/dist
 **/apache_ranger.egg-info
 .python-version
+dev-support/ranger-docker/kerberos-files/keytabs/**
