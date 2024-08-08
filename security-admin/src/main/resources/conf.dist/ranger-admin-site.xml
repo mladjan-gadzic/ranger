@@ -281,27 +281,27 @@
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.principal</name>
-		<value>rangeradmin/local@EXAMPLE.COM</value>
+		<value>rangeradmin/ranger@EXAMPLE.COM</value>
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.keytab</name>
-		<value>/etc/security/keytabs/rangeradmin.local.keytab</value>
+		<value>/etc/security/keytabs/rangeradmin.ranger.keytab</value>
 	</property>
 	<property>
 		<name>ranger.spnego.kerberos.principal</name>
-		<value>HTTP/local@EXAMPLE.COM</value>
+		<value>HTTP/ranger@EXAMPLE.COM</value>
 	</property>
 	<property>
 		<name>ranger.spnego.kerberos.keytab</name>
-		<value>/etc/security/keytabs/HTTP.local.keytab</value>
+		<value>/etc/security/keytabs/HTTP.ranger.keytab</value>
 	</property>	
 	<property>
 		<name>ranger.lookup.kerberos.principal</name>
-		<value>rangerlookup/local@EXAMPLE.COM</value>
+		<value>rangerlookup/ranger@EXAMPLE.COM</value>
 	</property>
 	<property>
 		<name>ranger.lookup.kerberos.keytab</name>
-		<value>/etc/security/keytabs/rangerlookup.local.keytab</value>
+		<value>/etc/security/keytabs/rangerlookup.ranger.keytab</value>
 	</property>
 	<!-- Kerberos Properties ENDs-->
 	<property>
