@@ -273,7 +273,7 @@
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.cookie.domain</name>
-		<value>localhost</value>
+		<value>ranger</value>
 	</property>
 	<property>
 		<name>ranger.admin.kerberos.cookie.path</name>
