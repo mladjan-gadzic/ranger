@@ -19,6 +19,7 @@
 #
 # This script will install policymanager webapplication under tomcat and also, initialize the database with ranger users/tables.
 
+echo "mladjan: running setup.sh script"
 usage() {
         [ "$*" ] && echo "$0: $*"
         sed -n '/^##/,/^$/s/^## \{0,1\}//p' "$0"
@@ -1656,9 +1657,9 @@ change_default_users_password(){
 log " --------- Running Ranger PolicyManager Web Application Install Script --------- "
 log "[I] uname=`uname`"
 log "[I] hostname=`hostname`"
-echo "mladjan: init_variables started"
+log "[mladjan] init_variables started"
 init_variables
-echo "mladjan: init_variables finished"
+log "[mladjan] init_variables finished"
 get_distro
 echo "mladjan: get_distro finished"
 check_java_version
