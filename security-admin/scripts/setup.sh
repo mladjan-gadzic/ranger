@@ -1656,6 +1656,7 @@ change_default_users_password(){
 log " --------- Running Ranger PolicyManager Web Application Install Script --------- "
 log "[I] uname=`uname`"
 log "[I] hostname=`hostname`"
+echo "mladjan: init_variables started"
 init_variables
 echo "mladjan: init_variables finished"
 get_distro
