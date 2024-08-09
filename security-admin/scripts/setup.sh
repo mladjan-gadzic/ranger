@@ -1657,27 +1657,18 @@ change_default_users_password(){
 log " --------- Running Ranger PolicyManager Web Application Install Script --------- "
 log "[I] uname=`uname`"
 log "[I] hostname=`hostname`"
-log "[mladjan] init_variables started"
+echo "mladjan init_variables started"
 init_variables
-log "[mladjan] init_variables finished"
+echo "mladjan init_variables finished"
 get_distro
-echo "mladjan: get_distro finished"
 check_java_version
-echo "mladjan: check_java_version finished"
 check_db_connector
-echo "mladjan: check_db_connector finished"
 setup_unix_user_group
-echo "mladjan: setup_unix_user_group finished"
 setup_install_files
-echo "mladjan: setup_install_files finished"
 sanity_check_files
-echo "mladjan: sanity_check_files finished"
 copy_db_connector
-echo "mladjan: copy_db_connector finished"
 check_python_command
-echo "mladjan: check_python_command finished"
 check_ranger_version
-echo "mladjan: check_ranger_version finished"
 if [ "$?" != "0" ]
 then
 	validateDefaultUsersPassword 'admin' "${rangerAdmin_password}"
