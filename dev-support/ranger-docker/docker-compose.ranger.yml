@@ -17,6 +17,7 @@ services:
       - ranger
     ports:
       - "6080:6080"
+      - "5005:5005"
     depends_on:
       ranger-zk:
         condition: service_started
