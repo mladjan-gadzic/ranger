@@ -14,7 +14,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
+echo "mladjan: running ranger-admin-services.sh script"
 if [[ -z $1 ]]; then
 	echo "Invalid argument [$1];"
 	echo "Usage: Only start | stop | restart | metric | version , are supported."
